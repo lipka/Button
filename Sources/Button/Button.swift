@@ -1,33 +1,34 @@
 import UIKit
 
-public class Button: UIButton {
-    public var alignmentEgdeInsets = UIEdgeInsets.zero
+open class Button: UIButton {
+    open var alignmentEgdeInsets = UIEdgeInsets.zero
+
     private var backgroundColors = [UInt: UIColor]() {
         didSet { apply() }
     }
 
-    public override var isSelected: Bool {
+    open override var isSelected: Bool {
         didSet { apply() }
     }
 
-    public override var isEnabled: Bool {
+    open override var isEnabled: Bool {
         didSet { apply() }
     }
 
-    public override var isHighlighted: Bool {
+    open override var isHighlighted: Bool {
         didSet { apply() }
     }
 
-    public override var intrinsicContentSize: CGSize {
+    open override var intrinsicContentSize: CGSize {
         let size = super.intrinsicContentSize
         return CGSize(width: size.width + titleEdgeInsets.left + titleEdgeInsets.right, height: size.height + titleEdgeInsets.top + titleEdgeInsets.bottom)
     }
 
-    public override var alignmentRectInsets: UIEdgeInsets {
+    open override var alignmentRectInsets: UIEdgeInsets {
         return alignmentEgdeInsets
     }
 
-    public func setBackgroundColor(_ color: UIColor, for state: UIControl.State) {
+    open func setBackgroundColor(_ color: UIColor, for state: UIControl.State) {
         backgroundColors[state.rawValue] = color
     }
 
